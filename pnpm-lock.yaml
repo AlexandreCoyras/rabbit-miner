@@ -17,6 +17,9 @@ dependencies:
   lucide-react:
     specifier: ^0.306.0
     version: 0.306.0(react@18.0.0)
+  memory-cache:
+    specifier: ^0.2.0
+    version: 0.2.0
   next:
     specifier: 14.0.4
     version: 14.0.4(@babel/core@7.23.7)(react-dom@18.0.0)(react@18.0.0)
@@ -37,6 +40,9 @@ devDependencies:
   '@ianvs/prettier-plugin-sort-imports':
     specifier: ^4.1.1
     version: 4.1.1(prettier@3.1.1)
+  '@types/memory-cache':
+    specifier: ^0.2.5
+    version: 0.2.5
   '@types/node':
     specifier: ^20
     version: 20.0.0
@@ -505,6 +511,10 @@ packages:
 
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+    dev: true
+
+  /@types/memory-cache@0.2.5:
+    resolution: {integrity: sha512-OIKRDDZUFeKT/rsko7/CGnR5qE8xTU8ogzyaaSDSHGkKwlSB/E6RopSF5fReo89khCAcGIoqSi723tDqUe6gYw==}
     dev: true
 
   /@types/node@20.0.0:
@@ -2056,6 +2066,10 @@ packages:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.0.0
+    dev: false
+
+  /memory-cache@0.2.0:
+    resolution: {integrity: sha512-OcjA+jzjOYzKmKS6IQVALHLVz+rNTMPoJvCztFaZxwG14wtAW7VRZjwTQu06vKCYOxh4jVnik7ya0SXTB0W+xA==}
     dev: false
 
   /merge2@1.4.1:

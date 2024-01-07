@@ -1,9 +1,15 @@
-import Image from "next/image"
+import getContractInfo from "@/app/api/info/getContractInfo"
 
-export default function Home() {
+async function getData() {
+  return await getContractInfo()
+}
+
+export default async function Home() {
+  const data = await getData()
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Rabbit Miner !
+      Rabbit Miner !{data.contract_value}
     </main>
   )
 }
