@@ -5,6 +5,7 @@ import toast from "react-hot-toast"
 import { formatUnits } from "viem"
 import { useAccount, useBalance } from "wagmi"
 
+import { weiToEth } from "@/lib/utils"
 import useEthPrice from "@/hooks/useEthPrice"
 import useUserContractBalance from "@/hooks/useUserContractBalance"
 import useWithdraw from "@/hooks/useWithdraw"
@@ -12,8 +13,9 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import AddToContract from "@/components/addToContract"
 
+import { Skeleton } from "./ui/skeleton"
+
 export default function MainPage() {
-  const { address } = useAccount()
   const userContractBalance = useUserContractBalance()
   const { withdraw } = useWithdraw()
 
@@ -26,7 +28,8 @@ export default function MainPage() {
     },
   })
 
-  const ethPrice = useEthPrice()
+  const { ethPrice } = useEthPrice()
+  console.log(typeof ethPrice)
 
   return (
     <>
@@ -44,26 +47,22 @@ export default function MainPage() {
             Balance:{" "}
             {
               // max 5 decimals
-              Math.round(parseFloat(formatUnits(balance.value, 18)) * 100000) /
-                100000
+              weiToEth(balance.value, 5)
             }{" "}
-            $ETH{" "}
+            $ETH
             {ethPrice &&
-              `(${(
-                (Math.round(
-                  parseFloat(formatUnits(balance.value, 18)) * 100000
-                ) /
-                  100000) *
-                ethPrice
-              ).toFixed(2)}}
+              `(${(weiToEth(balance.value) * ethPrice).toFixed(2)}
             $USD)`}
           </p>
         )}
-        {userContractBalance !== undefined && (
-          <p className={"font-retro"}>
-            Rewards pending: {formatUnits(userContractBalance, 18)} $ETH
-          </p>
-        )}
+        <p className={"font-retro"}>
+          Rewards pending:
+          {userContractBalance !== undefined &&
+            weiToEth(userContractBalance, 6)}
+          {/*    : (*/}
+          {/*  <Skeleton className={"h-full w-4"} />*/}
+          {/*)}*/} $ETH
+        </p>
         <Button onClick={() => withdraw()}>Withdraw</Button>
         <AddToContract />
       </Card>
