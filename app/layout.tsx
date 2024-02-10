@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Inter, Poppins, Press_Start_2P } from "next/font/google"
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
 import "nes.css/css/nes.min.css"
 import "./globals.css"
@@ -35,10 +36,21 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={cn(poppins.variable, pressStart2P.variable, "font-retro")}
+        className={cn(
+          poppins.variable,
+          pressStart2P.variable,
+          "font-retro",
+          "relative"
+        )}
         // className={inter.className}
       >
-        <Wrapper>{children}</Wrapper>
+        <Wrapper>
+          <ReactQueryDevtools
+            initialIsOpen={false}
+            buttonPosition={"bottom-left"}
+          />
+          {children}
+        </Wrapper>
       </body>
     </html>
   )

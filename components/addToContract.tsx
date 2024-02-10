@@ -12,6 +12,7 @@ import {
 } from "wagmi"
 import { z } from "zod"
 
+import useDeposit from "@/hooks/useDeposit"
 import { Button } from "@/components/ui/button"
 
 import { Input } from "./ui/input"
@@ -29,12 +30,9 @@ const AddToContract: FC = () => {
   const publicClient = usePublicClient()
   const queryClient = useQueryClient()
 
-  const {
-    data: hash,
-    isSuccess,
-    writeContractAsync,
-    isPending,
-  } = useWriteContract()
+  const { writeContractAsync } = useWriteContract()
+
+  const { deposit } = useDeposit()
 
   const onSubmit = async (data: z.infer<typeof AddToContractSchema>) => {
     const parsedData = AddToContractSchema.safeParse(data)
@@ -55,50 +53,27 @@ const AddToContract: FC = () => {
 
     const ethers = BigInt(data * 10 ** 18)
 
-    const PromiseForTansaction = new Promise(async function (resolve, reject) {
-      try {
-        const tx = await writeContractAsync({
-          value: BigInt(ethers),
-          // @ts-ignore
-          address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS!,
-          abi: parseAbi(["function deposit(address ref) public payable"]),
-          functionName: "deposit",
-          args: ["0x0000000000000000000000000000000000000000"],
-        })
-
-        resolve(
-          await publicClient.waitForTransactionReceipt({
-            hash: tx,
-            // retryDelay: 2000,
-            // retryCount: 40,
-          })
-        )
-      } catch (e) {
-        reject(e)
-      }
-    })
-
-    await toast.promise(PromiseForTansaction, {
-      loading: `Adding ${formatUnits(ethers, 18)} $ETH to the contract...`,
-      success: `Added ${formatUnits(ethers, 18)} $ETH to the contract!`,
-      error: `Failed to add ${formatUnits(ethers, 18)} $ETH to the contract!`,
-    })
+    deposit(ethers)
   }
 
   return (
     <>
       <Input
-        className={"w-52 mt-10 mx-auto"}
-        onChange={(v) => setValue(parseFloat(v.target.value))}
+        className={"mx-auto mt-10 w-52"}
+        onChange={(v) => {
+          setValue(parseFloat(v.target.value))
+          setError("")
+        }}
         type={"number"}
-      ></Input>
+        placeholder={"$ETH Amount"}
+      />
       <Button
         onClick={() => onSubmit(value)}
-        className={"font-retro mt-5 mx-auto"}
+        className={"mx-auto mt-5 font-retro"}
       >
         Add to contract
       </Button>
-      {error && <p className={"text-destructive text-xs mt-2"}>{error}</p>}
+      {error && <p className={"mt-2 text-xs text-destructive"}>{error}</p>}
     </>
   )
 }

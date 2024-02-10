@@ -11,7 +11,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <input
         type={type}
         className={cn(
-          "flex h-10 w-full px-3 py-2 text-base disabled:opacity-50 nes-input",
+          "nes-input flex h-10 w-full px-3 py-2 text-base placeholder:text-xs disabled:opacity-50",
           className
         )}
         ref={ref}
