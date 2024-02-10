@@ -19,6 +19,10 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        retro: ["var(--font-press-start)"],
+        poppins: ["var(--font-poppins)"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

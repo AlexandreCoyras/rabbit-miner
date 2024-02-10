@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 46, 33%, 93%;
     --foreground: 20 14.3% 4.1%;
 
     --card: 0 0% 100%;
@@ -64,6 +64,18 @@
     --input: 12 6.5% 15.1%;
     --ring: 24 5.7% 82.9%;
   }
+}
+
+.hyovxg * {
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0,pointer !important;
+}
+
+.title {
+  background-color: hsl(var(--background)) !important;
+}
+
+.nes-input {
+  background-color: hsl(var(--background)) !important;
 }
 
 @layer base {

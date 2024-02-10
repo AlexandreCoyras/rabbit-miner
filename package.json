@@ -11,15 +11,23 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
+    "@tanstack/react-query": "^5.18.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "connectkit": "^1.7.1",
     "lucide-react": "^0.306.0",
     "memory-cache": "^0.2.0",
+    "nes.css": "^2.3.0",
     "next": "14.0.4",
+    "pino-pretty": "^10.3.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-hot-toast": "^2.4.1",
     "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "viem": "2.x",
+    "wagmi": "^2.5.6",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
