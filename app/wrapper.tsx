@@ -13,11 +13,11 @@ interface WrapperProps {
 
 const ckConfig = getDefaultConfig({
   chains: [sepolia],
-  // transports: {
-  //   [sepolia.id]: http(
-  //     `https://sepolia.infura.io/v3/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`
-  //   ),
-  // },
+  transports: {
+    [sepolia.id]: http(
+      `https://sepolia.infura.io/v3/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`
+    ),
+  },
 
   // Required API Keys
   walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!,
@@ -28,7 +28,7 @@ const ckConfig = getDefaultConfig({
   // Optional App Info
   appDescription: "Your App Description",
   appUrl: "https://family.co", // your app's url
-  appIcon: "https://family.co/logo.png", // your app's icon, no bigger than 1024x1024px (max. 1MB)
+  appIcon: "/favicon.ico", // your app's icon, no bigger than 1024x1024px (max. 1MB)
 })
 
 const config = createConfig({
@@ -44,7 +44,7 @@ const Wrapper: FC<WrapperProps> = ({ children }) => {
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
           <ConnectKitProvider>
-            <Toaster containerClassName={"font-poppins"} />
+            <Toaster containerClassName={"font-poppins font-medium"} />
             {children}
           </ConnectKitProvider>
         </QueryClientProvider>

@@ -1,5 +1,6 @@
 import { Suspense } from "react"
 import dynamic from "next/dynamic"
+import Link from "next/link"
 
 import getContractInfo from "@/app/api/info/getContractInfo"
 
@@ -17,6 +18,11 @@ export default async function Home() {
       <Suspense fallback={null}>
         <MainPage />
       </Suspense>
+      <Link
+        target={"_blank"}
+        className="nes-icon github is-medium fixed absolute bottom-2 right-2 cursor-pointer-hand"
+        href={"https://github.com/AlexandreCoyras/RabbitMiner"}
+      />
     </main>
   )
 }
