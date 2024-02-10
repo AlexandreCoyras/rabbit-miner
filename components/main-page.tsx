@@ -51,7 +51,7 @@ export default function MainPage() {
             }{" "}
             $ETH
             {ethPrice &&
-              `(${(weiToEth(balance.value) * ethPrice).toFixed(2)}
+              ` (${(weiToEth(balance.value) * ethPrice).toFixed(2)}
             $USD)`}
           </p>
         )}
@@ -63,7 +63,9 @@ export default function MainPage() {
           {/*  <Skeleton className={"h-full w-4"} />*/}
           {/*)}*/} $ETH
         </p>
-        <Button onClick={() => withdraw()}>Withdraw</Button>
+        <Button onClick={() => withdraw()} className={"mx-auto mt-4 w-52"}>
+          Withdraw
+        </Button>
         <AddToContract />
       </Card>
     </>
