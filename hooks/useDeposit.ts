@@ -33,7 +33,7 @@ export default function useDeposit() {
         loading: `Adding ${formatUnits(ethers, 18)} $ETH to the contract...`,
         success: `Added ${formatUnits(ethers, 18)} $ETH to the contract!`,
         error: (e) =>
-          `Failed to add ${formatUnits(ethers, 18)} $ETH to the contract!` +
+          `Failed to add ${formatUnits(ethers, 18)} $ETH to the contract` +
           (e.shortMessage ? `: ${e.shortMessage}` : ""),
       })
 

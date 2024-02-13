@@ -59,7 +59,7 @@ const AddToContract: FC = () => {
   return (
     <>
       <Input
-        className={"mx-auto mt-10 w-52"}
+        className={"mx-auto mt-3 w-52"}
         onChange={(v) => {
           setValue(parseFloat(v.target.value))
           setError("")
@@ -69,7 +69,7 @@ const AddToContract: FC = () => {
       />
       <Button
         onClick={() => onSubmit(value)}
-        className={"mx-auto mt-5 font-retro"}
+        className={"mx-auto mt-3 font-retro"}
       >
         Add to contract
       </Button>

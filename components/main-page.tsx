@@ -29,7 +29,6 @@ export default function MainPage() {
   })
 
   const { ethPrice } = useEthPrice()
-  // console.log(typeof ethPrice)
 
   return (
     <>
@@ -55,18 +54,22 @@ export default function MainPage() {
             $USD)`}
           </p>
         )}
-        <p className={"font-retro"}>
-          Rewards pending:
+        <AddToContract />
+        <p className={"mt-10 font-retro"}>
+          Rewards:
           {userContractBalance !== undefined &&
             weiToEth(userContractBalance, 6)}
           {/*    : (*/}
           {/*  <Skeleton className={"h-full w-4"} />*/}
           {/*)}*/} $ETH
+          {userContractBalance !== undefined &&
+            ethPrice &&
+            ` (${(weiToEth(userContractBalance, 6) * ethPrice).toFixed(2)}
+            $USD)`}
         </p>
         <Button onClick={() => withdraw()} className={"mx-auto mt-4 w-52"}>
           Withdraw
         </Button>
-        <AddToContract />
       </Card>
     </>
   )

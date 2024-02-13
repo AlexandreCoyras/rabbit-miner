@@ -9,7 +9,11 @@ export default function useUserContractBalance() {
     abi: parseAbi(["function getMyFlakes() public view returns (uint256)"]),
     functionName: "getMyFlakes",
     account: address,
+    query: {
+      staleTime: 2 * 60 * 1000,
+    },
   })
+  console.log("MYFLAKES", myFlakes)
   const { data: userBalance } = useReadContract({
     // @ts-ignore
     address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS!,
@@ -18,6 +22,10 @@ export default function useUserContractBalance() {
     ]),
     functionName: "calculateFlakeSell",
     args: [myFlakes ?? BigInt(0)],
+    query: {
+      staleTime: 2 * 60 * 1000,
+    },
   })
+  console.log("USERBALANCE", userBalance)
   return userBalance
 }
