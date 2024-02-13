@@ -29,7 +29,7 @@ export default function MainPage() {
   })
 
   const { ethPrice } = useEthPrice()
-  console.log(typeof ethPrice)
+  // console.log(typeof ethPrice)
 
   return (
     <>

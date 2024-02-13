@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { useQuery } from "@tanstack/react-query"
 
 export default function useEthPrice() {
@@ -10,6 +11,19 @@ export default function useEthPrice() {
       const data = await response.json()
       return Number(data?.ethereum?.usd)
     },
+    queryKeyHashFn: (queryKey) => {
+      try {
+        return JSON.stringify(queryKey, (key, value) => {
+          if (typeof value === "bigint") {
+            return value.toString()
+          }
+          return value
+        })
+      } catch (e) {
+        return String(queryKey)
+      }
+    },
+    staleTime: 1 * 60 * 60 * 1000,
   })
 
   return {

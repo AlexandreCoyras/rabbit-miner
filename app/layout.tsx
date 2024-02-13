@@ -8,7 +8,8 @@ import "./globals.css"
 import { ReactNode } from "react"
 
 import { cn } from "@/lib/utils"
-import Wrapper from "@/app/wrapper"
+import InfoHeader from "@/components/info-header"
+import ClientProviders from "@/app/client-providers"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -40,17 +41,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           poppins.variable,
           pressStart2P.variable,
           "font-retro",
-          "relative"
+          "relative",
+          "min-h-screen"
         )}
         // className={inter.className}
       >
-        <Wrapper>
+        <ClientProviders>
           <ReactQueryDevtools
             initialIsOpen={false}
             buttonPosition={"bottom-left"}
           />
+          <InfoHeader />
           {children}
-        </Wrapper>
+        </ClientProviders>
       </body>
     </html>
   )
