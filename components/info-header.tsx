@@ -22,11 +22,11 @@ const InfoHeader: FC = () => {
             This is a demo Web3 app made using Next.js. You can find the source
             code at{" "}
             <Link
-              href={"https://github.com/AlexandreCoyras/RabbitMiner"}
+              href={"https://github.com/AlexandreCoyras/rabbit-miner"}
               className={"underline"}
               target={"_blank"}
             >
-              GitHub/AlexandreCoyras/RabbitMiner
+              GitHub/AlexandreCoyras/rabbit-miner
             </Link>{" "}
             !
             <button
