@@ -25,7 +25,9 @@ export default async function Home() {
         className="nes-icon github is-medium cursor-pointer-hand fixed bottom-2 right-2"
         href={"https://github.com/AlexandreCoyras/RabbitMiner"}
       />
-      <NoEtherHelp className={"absolute bottom-2 left-2"} />
+      <NoEtherHelp
+        className={"absolute -left-2 bottom-10 sm:bottom-2 sm:left-2"}
+      />
     </main>
   )
 }

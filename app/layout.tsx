@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Inter, Poppins, Press_Start_2P } from "next/font/google"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
+import { GeistSans } from "geist/font/sans"
 
 import "nes.css/css/nes.min.css"
 import "./globals.css"
@@ -15,11 +16,6 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
-})
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-sans",
 })
 
 const pressStart2P = Press_Start_2P({
@@ -40,6 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         className={cn(
           poppins.variable,
           pressStart2P.variable,
+          GeistSans.variable,
           "font-retro",
           "relative",
           "min-h-screen"

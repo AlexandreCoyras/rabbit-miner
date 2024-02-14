@@ -22,6 +22,7 @@ const config: Config = {
       fontFamily: {
         retro: ["var(--font-press-start)"],
         poppins: ["var(--font-poppins)"],
+        geist: ["var(--font-geist-sans)"],
       },
       colors: {
         border: "hsl(var(--border))",

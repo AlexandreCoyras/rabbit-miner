@@ -13,7 +13,6 @@ export default function useUserContractBalance() {
       staleTime: 2 * 60 * 1000,
     },
   })
-  console.log("MYFLAKES", myFlakes)
   const { data: userBalance } = useReadContract({
     // @ts-ignore
     address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS!,
@@ -26,6 +25,5 @@ export default function useUserContractBalance() {
       staleTime: 2 * 60 * 1000,
     },
   })
-  console.log("USERBALANCE", userBalance)
   return userBalance
 }

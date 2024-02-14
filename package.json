@@ -16,6 +16,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "connectkit": "^1.7.1",
+    "geist": "^1.2.2",
     "lucide-react": "^0.306.0",
     "memory-cache": "^0.2.0",
     "nes.css": "^2.3.0",
