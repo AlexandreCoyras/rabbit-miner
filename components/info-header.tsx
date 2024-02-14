@@ -19,8 +19,7 @@ const InfoHeader: FC = () => {
               "z-50 w-full bg-background p-2 text-center text-xs font-semibold text-primary"
             }
           >
-            This is a demo Web3 app made using Next.js. You can find the source
-            code at{" "}
+            This is a demo Web3 application. You can find the source code at{" "}
             <Link
               href={"https://github.com/AlexandreCoyras/rabbit-miner"}
               className={"underline"}
