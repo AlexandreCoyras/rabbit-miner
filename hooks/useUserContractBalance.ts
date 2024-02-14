@@ -23,6 +23,7 @@ export default function useUserContractBalance() {
     args: [myFlakes ?? BigInt(0)],
     query: {
       staleTime: 2 * 60 * 1000,
+      enabled: !!myFlakes,
     },
   })
   return userBalance

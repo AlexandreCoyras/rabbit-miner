@@ -14,8 +14,10 @@ export default function useGetMyRabbits() {
     //   2 minutes
     query: {
       staleTime: 2 * 60 * 1000,
+      enabled: !!address,
     },
   })
+  console.log(query.data, "query.data")
   return {
     ...query,
     myDeposit: query.data,

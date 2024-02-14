@@ -48,8 +48,8 @@ export default function MainPage() {
         </p>
       )}
       <p className={"mt-10 font-retro"}>
-        Your Deposit:
-        {myDeposit !== undefined ? weiToEth(myDeposit, 6) : 0} $ETH
+        Your Deposit: {myDeposit !== undefined ? weiToEth(myDeposit, 6) : 0}{" "}
+        $ETH
         {myDeposit !== undefined &&
           ethPrice &&
           ` (${(weiToEth(myDeposit, 6) * ethPrice).toFixed(2)}
@@ -57,8 +57,10 @@ export default function MainPage() {
       </p>
       <AddToContract />
       <p className={"mt-10 font-retro"}>
-        Rewards:
-        {userContractBalance !== undefined && weiToEth(userContractBalance, 6)}
+        Rewards:{" "}
+        {userContractBalance !== undefined
+          ? weiToEth(userContractBalance, 6)
+          : 0}
         {/*    : (*/}
         {/*  <Skeleton className={"h-full w-4"} />*/}
         {/*)}*/} $ETH

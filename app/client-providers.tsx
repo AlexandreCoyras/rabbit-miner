@@ -14,8 +14,9 @@ interface WrapperProps {
 const ckConfig = getDefaultConfig({
   chains: [sepolia],
   transports: {
-    [sepolia.id]: http(),
-    // `https://sepolia.infura.io/v3/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`
+    [sepolia.id]: http(
+      `https://sepolia.infura.io/v3/${process.env.NEXT_PUBLIC_ALCHEMY_ID}`
+    ),
   },
 
   // Required API Keys
