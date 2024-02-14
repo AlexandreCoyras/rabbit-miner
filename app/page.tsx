@@ -4,12 +4,13 @@ import Link from "next/link"
 import { ConnectKitButton } from "connectkit"
 
 import { Card } from "@/components/ui/card"
+import MainPage from "@/components/main-page"
 import NoEtherHelp from "@/components/no-ether-help"
 import Web3Button from "@/components/Web3Button"
 // import MainPage from "@/components/main-page"
 import getContractInfo from "@/app/api/info/getContractInfo"
 
-const MainPage = dynamic(() => import("@/components/main-page"), { ssr: false })
+// const MainPage = dynamic(() => import("@/components/main-page"), { ssr: false })
 async function getData() {
   return await getContractInfo()
 }
@@ -29,9 +30,7 @@ export default async function Home() {
         centered
         className={"mt-24 flex min-h-[18rem] min-w-[18rem] flex-col"}
       >
-        <Suspense fallback={null}>
-          <MainPage />
-        </Suspense>
+        <MainPage />
       </Card>
       <Link
         target={"_blank"}

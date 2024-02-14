@@ -7,6 +7,7 @@ import { useAccount, useBalance } from "wagmi"
 
 import { weiToEth } from "@/lib/utils"
 import useEthPrice from "@/hooks/useEthPrice"
+import useGetMyRabbits from "@/hooks/useGetMyRabbits"
 import useUserContractBalance from "@/hooks/useUserContractBalance"
 import useWithdraw from "@/hooks/useWithdraw"
 import { Button } from "@/components/ui/button"
@@ -18,6 +19,7 @@ import { Skeleton } from "./ui/skeleton"
 export default function MainPage() {
   const userContractBalance = useUserContractBalance()
   const { withdraw } = useWithdraw()
+  const { myDeposit } = useGetMyRabbits()
 
   const { data: balance } = useBalance({
     // @ts-ignore
@@ -45,6 +47,14 @@ export default function MainPage() {
             $USD)`}
         </p>
       )}
+      <p className={"mt-10 font-retro"}>
+        Your Deposit:
+        {myDeposit !== undefined ? weiToEth(myDeposit, 6) : 0} $ETH
+        {myDeposit !== undefined &&
+          ethPrice &&
+          ` (${(weiToEth(myDeposit, 6) * ethPrice).toFixed(2)}
+            $USD)`}
+      </p>
       <AddToContract />
       <p className={"mt-10 font-retro"}>
         Rewards:

@@ -40,6 +40,10 @@ export default function useDeposit() {
       await queryClient.invalidateQueries({
         queryKey: ["balance"],
       })
+
+      await queryClient.invalidateQueries({
+        queryKey: ["readContract"],
+      })
     },
   })
 
