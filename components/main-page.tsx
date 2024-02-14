@@ -32,45 +32,34 @@ export default function MainPage() {
 
   return (
     <>
-      <div className={"ml-auto"}>
-        <ConnectKitButton theme={"retro"} />
-      </div>
-
-      <Card
-        title={"Enter The Rabbit Hole"}
-        centered
-        className={"mt-24 flex flex-col"}
-      >
-        {balance && (
-          <p className={"font-retro"}>
-            Balance:{" "}
-            {
-              // max 5 decimals
-              weiToEth(balance.value, 5)
-            }{" "}
-            $ETH
-            {ethPrice &&
-              ` (${(weiToEth(balance.value) * ethPrice).toFixed(2)}
-            $USD)`}
-          </p>
-        )}
-        <AddToContract />
-        <p className={"mt-10 font-retro"}>
-          Rewards:
-          {userContractBalance !== undefined &&
-            weiToEth(userContractBalance, 6)}
-          {/*    : (*/}
-          {/*  <Skeleton className={"h-full w-4"} />*/}
-          {/*)}*/} $ETH
-          {userContractBalance !== undefined &&
-            ethPrice &&
-            ` (${(weiToEth(userContractBalance, 6) * ethPrice).toFixed(2)}
+      {balance && (
+        <p className={"font-retro"}>
+          Balance:{" "}
+          {
+            // max 5 decimals
+            weiToEth(balance.value, 5)
+          }{" "}
+          $ETH
+          {ethPrice &&
+            ` (${(weiToEth(balance.value) * ethPrice).toFixed(2)}
             $USD)`}
         </p>
-        <Button onClick={() => withdraw()} className={"mx-auto mt-4 w-52"}>
-          Withdraw
-        </Button>
-      </Card>
+      )}
+      <AddToContract />
+      <p className={"mt-10 font-retro"}>
+        Rewards:
+        {userContractBalance !== undefined && weiToEth(userContractBalance, 6)}
+        {/*    : (*/}
+        {/*  <Skeleton className={"h-full w-4"} />*/}
+        {/*)}*/} $ETH
+        {userContractBalance !== undefined &&
+          ethPrice &&
+          ` (${(weiToEth(userContractBalance, 6) * ethPrice).toFixed(2)}
+            $USD)`}
+      </p>
+      <Button onClick={() => withdraw()} className={"mx-auto mt-4 w-52"}>
+        Withdraw
+      </Button>
     </>
   )
 }
